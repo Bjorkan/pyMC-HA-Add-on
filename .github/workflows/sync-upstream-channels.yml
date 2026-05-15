@@ -1,0 +1,95 @@
+name: Sync Upstream Channels
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 * * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  sync-channel:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        state_file:
+          - .github/upstream-dev.json
+          - .github/upstream-main.json
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Read tracked channel state
+        id: tracked
+        env:
+          STATE_FILE: ${{ matrix.state_file }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          state = json.loads(Path(os.environ["STATE_FILE"]).read_text())
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as out:
+              out.write(f"image={state['image']}\n")
+              out.write(f"revision={state['revision']}\n")
+              out.write(f"channel={state['channel']}\n")
+              out.write(f"addon_dir={state['addon_dir']}\n")
+          PY
+
+      - name: Pull upstream image
+        id: imagepull
+        continue-on-error: true
+        run: docker pull "${{ steps.tracked.outputs.image }}"
+
+      - name: Stop if image tag does not exist yet
+        if: steps.imagepull.outcome != 'success'
+        run: echo "Image ${{ steps.tracked.outputs.image }} is not available yet; skipping."
+
+      - name: Read upstream image revision label
+        if: steps.imagepull.outcome == 'success'
+        id: upstream
+        run: |
+          revision="$(docker inspect '${{ steps.tracked.outputs.image }}' --format '{{ index .Config.Labels "org.opencontainers.image.revision" }}')"
+          echo "revision=${revision}" >> "$GITHUB_OUTPUT"
+
+      - name: Stop if upstream revision is unchanged
+        if: steps.imagepull.outcome == 'success' && steps.tracked.outputs.revision == steps.upstream.outputs.revision
+        run: echo "Upstream revision unchanged; nothing to do."
+
+      - name: Fetch upstream compare data
+        if: steps.imagepull.outcome == 'success' && steps.tracked.outputs.revision != steps.upstream.outputs.revision
+        env:
+          OLD_REVISION: ${{ steps.tracked.outputs.revision }}
+          NEW_REVISION: ${{ steps.upstream.outputs.revision }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          curl -fsSL \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/pyMC-dev/pyMC_Repeater/compare/${OLD_REVISION}...${NEW_REVISION}" \
+            -o /tmp/pymc-repeater-compare-${{ steps.tracked.outputs.channel }}.json
+
+      - name: Update tracked upstream revision and changelog
+        if: steps.imagepull.outcome == 'success' && steps.tracked.outputs.revision != steps.upstream.outputs.revision
+        env:
+          STATE_FILE: ${{ matrix.state_file }}
+          NEW_REVISION: ${{ steps.upstream.outputs.revision }}
+          COMPARE_JSON_PATH: /tmp/pymc-repeater-compare-${{ steps.tracked.outputs.channel }}.json
+        run: python scripts/sync_upstream_channel.py
+
+      - name: Commit and push changes
+        if: steps.imagepull.outcome == 'success' && steps.tracked.outputs.revision != steps.upstream.outputs.revision
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ${{ matrix.state_file }} ${{ steps.tracked.outputs.addon_dir }}/config.yaml ${{ steps.tracked.outputs.addon_dir }}/CHANGELOG.md
+          git commit -m "Sync upstream pyMC Repeater ${{ steps.tracked.outputs.channel }}"
+          git push

@@ -1,0 +1,6 @@
+{
+  "addon_dir": "pymc_repeater_main",
+  "channel": "main",
+  "image": "pymcdev/pymc-repeater:main",
+  "revision": "a36cb6af44ab63247dd6d0f414afc6e53de18012"
+}
