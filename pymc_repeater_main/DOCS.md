@@ -26,10 +26,12 @@ from Home Assistant's main `/config` folder.
 
 1. Add this repository to Home Assistant.
 2. Install the `pyMC Repeater Main` add-on.
-3. Open your Home Assistant file editor, such as Studio Code Server.
-4. Edit the add-on config file `config.yaml` in the add-on's own config folder.
+3. If you are using local Pi GPIO or SPI hardware, disable `Protection mode`
+   in the add-on settings before starting the add-on.
+4. Open your Home Assistant file editor, such as Studio Code Server.
+5. Edit the add-on config file `config.yaml` in the add-on's own config folder.
    You are looking for a folder matching `addon_config/*_pymc_repeater_main`.
-5. Start the add-on and open the web UI on port `8000`.
+6. Start the add-on and open the web UI on port `8000`.
 
 ## Configuration
 
@@ -54,6 +56,24 @@ The bundled starter config is aimed at an SX1262 SPI radio. At minimum, review:
 Other radio backends supported by the upstream `:main` image, such as
 `pymc_tcp`, should be configured directly in `config.yaml` using the upstream
 schema.
+
+## Raspberry Pi Host Setup
+
+If you are using an SX1262 or other local Pi-attached hardware, enable the
+required host interfaces in Home Assistant OS before starting the add-on.
+
+On the `hassos-boot` partition of the SD card:
+
+- Edit `config.txt` and add `dtparam=spi=on`
+- Add `dtparam=i2c_arm=on` and `dtparam=i2c_vc=on` only if you also need I2C
+- Create `CONFIG/modules/rpi-i2c.conf` containing `i2c-dev` only if you need I2C
+
+For local GPIO or SPI access inside Home Assistant:
+
+- Disable add-on `Protection mode`
+- Keep this add-on on hardware-capable hosts such as Raspberry Pi
+- Use BCM GPIO numbering in `config.yaml`, for example `irq_pin: 16` means
+  BCM GPIO 16, not physical header pin 16
 
 ## Hardware Access
 
