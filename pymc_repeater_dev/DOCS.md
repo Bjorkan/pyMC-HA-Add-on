@@ -81,6 +81,9 @@ This add-on currently runs with `full_access: true` and AppArmor disabled.
 That is deliberate so pyMC Repeater can access SPI, GPIO, USB, and serial
 hardware used by supported radio setups.
 
+This add-on also runs on the host network so pyMC Repeater companion services
+can bind dynamic ports directly on the Home Assistant host.
+
 ## Web UI
 
 The upstream container exposes its web interface on port `8000`.

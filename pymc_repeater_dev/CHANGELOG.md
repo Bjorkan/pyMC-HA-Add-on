@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1
+
+- Enable host networking so companion nodes can bind dynamic host ports
+
 ## 1.0.0
 
 - Initial release of the Home Assistant add-on repository

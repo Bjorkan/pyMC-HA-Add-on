@@ -1,5 +1,5 @@
 name: "pyMC Repeater Main"
-version: "1.0.0"
+version: "1.0.1"
 slug: "pymc_repeater_main"
 description: "Mainline-tracking pyMC Repeater add-on for Home Assistant"
 url: "https://github.com/pyMC-dev/pyMC-HA-Add-on"
@@ -9,6 +9,7 @@ arch:
 startup: application
 boot: auto
 stage: experimental
+host_network: true
 webui: "http://[HOST]:[PORT:8000]/"
 ports:
   8000/tcp: 8000
