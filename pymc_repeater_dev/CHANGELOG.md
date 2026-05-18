@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.6
+
+- Track upstream `DEV` commit `13ea672` from `pymcdev/pymc-repeater:dev`
+- Previous tracked commit: `193b428`
+- Upstream diff: https://github.com/pyMC-dev/pyMC_Repeater/compare/193b428cc2949695f3c3434ef3349d32ee3a207d...13ea67259711913c498081071fe5b86eb6b283f0
+- Included upstream commits:
+  - `7b6babd` service: restart containers by exiting process
+  - `ab8ae30` web: clarify docker restart update messaging
+  - `11e2b90` ci: route docker publish by repository owner
+  - `f21aba0` docker: mount config directory in compose
+  - `13ea672` Merge pull request #254 from yellowcooln/dev
+
 ## 1.0.5
 
 - Add user-local Python site-packages directories to `PYTHONPATH` before startup
