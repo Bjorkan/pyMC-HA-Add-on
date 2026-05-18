@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2
+
+- Handle rootless upstream image builds in the add-on Dockerfiles
+- Run the add-on wrapper as root so startup can manage `/etc/pymc_repeater`
+
 ## 1.0.1
 
 - Enable host networking so companion nodes can bind dynamic host ports
