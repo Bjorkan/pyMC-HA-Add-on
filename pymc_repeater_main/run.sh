@@ -15,6 +15,16 @@ CONFIG_SOURCE="unknown"
 mkdir -p "${ADDON_CONFIG_ROOT}"
 mkdir -p "${DATA_DIR}"
 
+# Some upstream images install Python packages into a non-root user's local
+# site-packages directory. The add-on wrapper starts as root so it can manage
+# /etc/pymc_repeater, so make those user-local site-packages visible too.
+for site_dir in /home/*/.local/lib/python*/site-packages; do
+    if [ -d "${site_dir}" ]; then
+        PYTHONPATH="${site_dir}${PYTHONPATH:+:${PYTHONPATH}}"
+    fi
+done
+export PYTHONPATH
+
 if [ ! -f "${PERSISTENT_CONFIG_FILE}" ] && [ -f "${NESTED_CONFIG_FILE}" ]; then
     cp "${NESTED_CONFIG_FILE}" "${PERSISTENT_CONFIG_FILE}"
     echo "[pymc-repeater-ha] migrated nested config from ${NESTED_CONFIG_FILE} to ${PERSISTENT_CONFIG_FILE}"

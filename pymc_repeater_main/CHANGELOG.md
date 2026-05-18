@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.5
+
+- Add user-local Python site-packages directories to `PYTHONPATH` before startup
+
 ## 1.0.4
 
 - Make startup config inspection resilient when the inline Python YAML import fails
