@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.9
+
+- Track upstream `DEV` commit `22adbd1` from `pymcdev/pymc-repeater:dev`
+- Previous tracked commit: `6aab7ec`
+- Upstream diff: https://github.com/pyMC-dev/pyMC_Repeater/compare/6aab7ec67632cb00ff29cb4e8dab2404cf788339...22adbd1a84b48bf2143065dca03504b0c3dbcaaa
+- Included upstream commits:
+  - `22adbd1` feat: add setup usb/tcp details on setup
+
 ## 1.0.8
 
 - Track upstream `DEV` commit `6aab7ec` from `pymcdev/pymc-repeater:dev`
