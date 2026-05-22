@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.12
+
+- Track upstream `DEV` commit `a48b298` from `pymcdev/pymc-repeater:dev`
+- Previous tracked commit: `4cf04f8`
+- Upstream diff: https://github.com/pyMC-dev/pyMC_Repeater/compare/4cf04f87d1b2fa6c4ddcbd8a8bc9591077ca2295...a48b29837acab532f576c5486b6aeae6ee458ed3
+- Included upstream commits:
+  - `5c68707` feat: add endpoint to discover available serial/USB modem device paths
+  - `3244f7b` feat: add validation for TX power settings and update API endpoint for serial ports
+  - `2a031b7` feat: add validate_config endpoint to check config.yaml syntax and required settings
+  - `78648f2` feat: add site_info endpoint to return site identification name without authentication
+  - `a48b298` feat: pre-restart config validation and site identification
+
 ## 1.0.11
 
 - Track upstream `DEV` commit `4cf04f8` from `pymcdev/pymc-repeater:dev`
