@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.11
+
+- Track upstream `DEV` commit `4cf04f8` from `pymcdev/pymc-repeater:dev`
+- Previous tracked commit: `8f3477d`
+- Upstream diff: https://github.com/pyMC-dev/pyMC_Repeater/compare/8f3477ddd6fa879368dad99e18b258770bdeb380...4cf04f87d1b2fa6c4ddcbd8a8bc9591077ca2295
+- Included upstream commits:
+  - `d25e97a` feat: implement setup status check and reject subsequent setups after completion
+  - `5b93d10` fix: update loop detection thresholds and improve path hash handling in API endpoints
+  - `b464fa8` docs: update example configuration for Waveshare UPS D and E Hats
+  - `22b39e5` fix: update maintainer information in changelog, control, and build scripts
+  - `4cf04f8` test: sensor tests with mock implementations and additional assertions
+
 ## 1.0.10
 
 - Track upstream `DEV` commit `8f3477d` from `pymcdev/pymc-repeater:dev`
