@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.16
+
+- Track upstream `DEV` commit `31edaa9` from `pymcdev/pymc-repeater:dev`
+- Previous tracked commit: `dc317b6`
+- Upstream diff: https://github.com/pyMC-dev/pyMC_Repeater/compare/dc317b6568f14d1a9b97d0c942eccb693e0ad796...31edaa9c7651a059d3b27b28cc43a915c8b27af8
+- Included upstream commits:
+  - `37ee0e8` Add more unit tests for handler helpers, identity manager, CLI, key generation, and main functionality
+  - `7b86716` Add unit tests for HTTP server, main daemon, service utilities, SQLite handler, and update endpoints
+  - `31edaa9` fix: update installation scripts to use the correct branch name
+
 ## 1.0.15
 
 - Track upstream `DEV` commit `dc317b6` from `pymcdev/pymc-repeater:dev`
