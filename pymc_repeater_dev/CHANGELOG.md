@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.18
+
+- Track upstream `DEV` commit `8eaf24a` from `pymcdev/pymc-repeater:dev`
+- Previous tracked commit: `36aa8ec`
+- Upstream diff: https://github.com/pyMC-dev/pyMC_Repeater/compare/36aa8ecf0d5a33256c2651a71b999aa1aec7fee2...8eaf24ab35dd51d394199ccf24c5daae2cd07cfa
+- Included upstream commits:
+  - `7db6535` fix: Python 3.10 compat for datetime.UTC in api_endpoints
+  - `9fe0142` fix: replace datetime.UTC with timezone.utc for Python 3.10 compat
+  - `a1c6610` fix: remove datetime.UTC from mqtt_handler and add 3.10 compat test
+  - `d597ab2` fix: replace datetime.UTC attribute access in repeater_cli
+  - `8eaf24a` Merge pull request #266 from zindello/fix/python310-datetime-utc
+
 ## 1.0.17
 
 - Track upstream `DEV` commit `36aa8ec` from `pymcdev/pymc-repeater:dev`
