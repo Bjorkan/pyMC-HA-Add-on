@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.21
+
+- Track upstream `DEV` commit `730eaa9` from `pymcdev/pymc-repeater:dev`
+- Previous tracked commit: `5df8b16`
+- Upstream diff: https://github.com/pyMC-dev/pyMC_Repeater/compare/5df8b160e5f554f2eee6e3a3e1db1f75bdc0a69e...730eaa97f79d3e10d5dda129b0bb63194169711b
+- Included upstream commits:
+  - `6295f0f` feat: add utility function to restore bytes from JSON and enhance prefs handling in RepeaterCompanionBridge
+  - `730eaa9` Merge pull request #275 from agessaman/fix/binary-persist-1150
+
 ## 1.0.20
 
 - Track upstream `DEV` commit `5df8b16` from `pymcdev/pymc-repeater:dev`
