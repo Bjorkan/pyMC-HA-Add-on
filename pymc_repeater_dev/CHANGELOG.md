@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.26
+
+- Track upstream `DEV` commit `225feda` from `pymcdev/pymc-repeater:dev`
+- Previous tracked commit: `cd7058b`
+- Upstream diff: https://github.com/pyMC-dev/pyMC_Repeater/compare/cd7058be990f7c635cd2e094058ea5afb0a6eb86...225feda19572d72508ea034047c1c55d8e708cba
+- Included upstream commits:
+  - `14b4804` feat: Enhance logging system and introduce policy management endpoints
+  - `225feda` feat:ui for policy and logging update
+
 ## 1.0.25
 
 - Track upstream `DEV` commit `cd7058b` from `pymcdev/pymc-repeater:dev`
