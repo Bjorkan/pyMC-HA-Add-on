@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.0.27
+
+- Track upstream `DEV` commit `af603d7` from `pymcdev/pymc-repeater:dev`
+- Previous tracked commit: `225feda`
+- Upstream diff: https://github.com/pyMC-dev/pyMC_Repeater/compare/225feda19572d72508ea034047c1c55d8e708cba...af603d78d0f3e37a6855a67e2fb113a887885446
+- Included upstream commits:
+  - `4abc497` MeshSmith: Change tx_power from 22 to 18
+  - `e9a9f21` feat: update preamble_length to 32 for radio configurations
+  - `b5b2c60` Update MQTT host and audience to meshmapper.net
+  - `8926b3d` Fix URL in test_get_preset_meshmapper_is_single_broker_mc2mqtt
+  - `767c070` Update broker host and audience in tests
+  - `da95c67` fix: improve error logging for invalid policy entries and adjust test configuration
+  - `b3119f9` Merge branch 'pr-281' into dev
+  - `879aac1` Merge branch 'pr-280' into dev
+
 ## 1.0.26
 
 - Track upstream `DEV` commit `225feda` from `pymcdev/pymc-repeater:dev`
