@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.32
+
+- Track upstream `DEV` commit `291c1a6` from `pymcdev/pymc-repeater:dev`
+- Previous tracked commit: `99a0429`
+- Upstream diff: https://github.com/pyMC-dev/pyMC_Repeater/compare/99a04295da33790d0bdd876a7acbe5367017cd8f...291c1a6ed9a6aab575eb89b13917a0eede89cb60
+- Included upstream commits:
+  - `063c8ee` Fix companion identity OpenAPI contract
+  - `aeea4bb` Format OpenAPI identity test
+  - `291c1a6` fix:update statics for companion ui fix
+
 ## 1.0.31
 
 - Track upstream `DEV` commit `99a0429` from `pymcdev/pymc-repeater:dev`
