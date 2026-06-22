@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.39
+
+- Track upstream `DEV` commit `0c6d27a` from `pymcdev/pymc-repeater:dev`
+- Previous tracked commit: `0f980e4`
+- Upstream diff: https://github.com/pyMC-dev/pyMC_Repeater/compare/0f980e4e03e90625da3bb3310ce42e0c3ce2d9cc...0c6d27a9b109042cc1713a8bc529c0e103115a4d
+- Included upstream commits:
+  - `2435757` feat: enhance SQLiteHandler and StorageCollector for improved caching and async performance
+  - `cd763e2` feat: implement threaded stats broadcasting in StorageCollector
+  - `0c6d27a` Merge pull request #304 from agessaman/feat/database-load-mitigations
+
 ## 1.0.38
 
 - Track upstream `DEV` commit `0f980e4` from `pymcdev/pymc-repeater:dev`
