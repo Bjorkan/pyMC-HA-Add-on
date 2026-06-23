@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.0.40
+
+- Track upstream `DEV` commit `c0d919c` from `pymcdev/pymc-repeater:dev`
+- Previous tracked commit: `0c6d27a`
+- Upstream diff: https://github.com/pyMC-dev/pyMC_Repeater/compare/0c6d27a9b109042cc1713a8bc529c0e103115a4d...c0d919c0e2ae9a0232e2f7249c814fa82ea11b34
+- Included upstream commits:
+  - `77fc244` fix: baseline PyMC modem CRC stats
+  - `dde487b` fix: add generic PyMC modem stats sensor
+  - `642c019` fix: preserve modem GPS satellites in view
+  - `5d3733a` fix: satisfy pre-commit for modem HTTP telemetry
+  - `f2b7d25` fix: slow sensor polling to 60 seconds
+  - `1c186d7` fix: throttle only pyMC modem sensor polling
+  - `5aebb4d` style: format sensor manager polling change
+  - `1881ad9` feat: derive modem battery percent from voltage
+
 ## 1.0.39
 
 - Track upstream `DEV` commit `0c6d27a` from `pymcdev/pymc-repeater:dev`
