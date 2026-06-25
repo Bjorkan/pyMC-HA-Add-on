@@ -1,0 +1,46 @@
+# Default pyMC Glass Configuration
+
+app:
+  log_level: INFO
+
+database:
+  password: "pymc_glass"
+
+mqtt:
+  base_topic: "glass"
+  port: 8883
+  repeater_tls_enabled: true
+  ingest_enabled: true
+  ingest_queue_maxsize: 2000
+
+pki:
+  ca_common_name: "pyMC_Glass Local CA"
+  ca_valid_days: 3650
+  client_cert_valid_days: 90
+  renew_before_days: 30
+
+auth:
+  token_ttl_minutes: 1440
+  token_bytes: 48
+  password_min_length: 12
+
+bootstrap:
+  seed_admin_enabled: true
+  seed_admin_email: "admin@pymc.glass"
+  seed_admin_password: "admin12345678"
+  seed_admin_display_name: "Admin"
+
+alerts:
+  policy_monitor_enabled: true
+  policy_monitor_interval_seconds: 60
+  action_dispatcher_enabled: true
+  action_dispatcher_interval_seconds: 10
+  action_dispatcher_batch_size: 50
+  action_dispatcher_max_attempts: 5
+  action_dispatcher_backoff_seconds: 15
+
+config_snapshots:
+  encryption_keys: null
+  retention_max_per_repeater: 20
+  retention_max_age_days: 90
+  max_payload_bytes: 2000000

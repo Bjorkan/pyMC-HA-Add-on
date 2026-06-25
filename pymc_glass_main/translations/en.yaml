@@ -1,0 +1,6 @@
+configuration:
+  config_location_note:
+    name: Config file location
+    description: >-
+      Informational only. Edit the real Glass config file in
+      addon_config/*_pymc_glass_main/config.yaml.
